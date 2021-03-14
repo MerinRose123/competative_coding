@@ -62,6 +62,10 @@ import re
 import sys
 
 def unboundedKnapsack(k, arr):
+        """
+    Using the tabulation method in dynamic programming. An array sum_array of the size of taregtsum + 1 is created and sum 
+    is calculated usign iteration from zero.
+    """
     sum_array = [None] * (k + 1)
     n = len(arr)
     sum_array[0] = True
@@ -71,7 +75,8 @@ def unboundedKnapsack(k, arr):
             for num in arr:
                 if(i+num <= k):
                     sum_array[i + num] = True
-                
+    
+    # Returning the most close but lower or equal so
     j = k
     while(j >= 0):
         if sum_array[j]:
