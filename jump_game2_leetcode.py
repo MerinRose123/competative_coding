@@ -51,9 +51,10 @@ class Solution:
 
         return no_jump
 """
-Solution 2 using dynamic programming
-Time complexity : 
-Space complexity : 
+Solution 2 using dynamic programming. Array to store min jumps at each index.
+Time complexity : O(n * n)
+Space complexity : O(n)
+https://www.youtube.com/watch?v=PrSi5u0KMyE
 """
 class Solution:
     def jump(self, nums: List[int]) -> int:
