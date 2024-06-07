@@ -1,4 +1,4 @@
-/* Increasing decreasing string
+""" Increasing decreasing string
 Given a string s. You should re-order the string using the following algorithm:
 
     Pick the smallest character from s and append it to the result.
@@ -12,7 +12,7 @@ Given a string s. You should re-order the string using the following algorithm:
 In each step, If the smallest or the largest character appears more than once you can choose any occurrence and append it to the result.
 
 Return the result string after sorting s with this algorithm.
-*/
+"""
 # Solution
 
 def count_freq(s):
