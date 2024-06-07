@@ -1,3 +1,3 @@
-# Code-Challenges
+# Coding Interview Problems
 
-Code challenge questions and answers
+Usual Coding interview questions with answers
