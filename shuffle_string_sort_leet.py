@@ -1,3 +1,4 @@
+"""
 # Question
 1528. Shuffle string
 Given a string s and an integer array indices of the same length.
@@ -9,7 +10,7 @@ Return the shuffled string.
 Input: s = "codeleet", indices = [4,5,6,7,0,2,1,3]
 Output: "leetcode"
 Explanation: As shown, "codeleet" becomes "leetcode" after shuffling.
-
+"""
 # Soultion
 
 class Solution:
