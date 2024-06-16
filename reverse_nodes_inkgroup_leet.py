@@ -26,40 +26,23 @@ Follow-up: Can you solve the problem in O(1) extra memory space?
 Trick : Iterate and reverse each k node set
 """
 class Solution:
-    def reverseLinkedList(self, head, k):
-        prev_node, current = None, head
-        while k:
-            next_node = current.next
-            current.next = prev_node
-            prev_node = current
-            current = next_node
-            k -= 1
-        new_head = prev_node
-        return new_head
+    def reverseKGroup(self, head: ListNode, k: int) -> ListNode:        
+        curr = head
+        # The left out nodes after k times will hit here
+        for _ in range(k):
+            if not curr: return head
+            curr = curr.next
 
-    def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
-        current = head
-        ktail = None
-        prev_node = None
-        while current:
-            count = 0
-            current = head
-            while count < k and current:
-                current = current.next
-                count += 1
-            if count == k:
-                revHead = self.reverseLinkedList(head, k)
-                if not prev_node:
-                    prev_node = revHead
-                  
-                if ktail:
-                    ktail.next = revHead
+        # Reverse linked list
+        prev = None
+        curr = head
+        for _ in range(k):
+            nxt = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nxt
 
-                ktail = head
-                head = current
-
-        if ktail:
-            ktail.next = head
-          
-        new_head = prev_node
-        return new_head if new_head else head
+        # Attach next set to current
+        head.next = self.reverseKGroup(curr, k)
+     
+        return prev
