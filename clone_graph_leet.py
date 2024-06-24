@@ -62,33 +62,16 @@ class Solution:
     def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
         if not node:
             return node
-        
-        if node.neighbors == []:
-            return Node(node.val, [])
-        
-        visited = {}
+
+        visited = {node: Node(node.val, [])}
         q = collections.deque([node])
         while q:
-            qLen = len(q)
-            for i in range(qLen):
-                current = q.popleft()
-                if current in visited and len(visited[current].neighbors) == len(current.neighbors) :
-                    continue
-                elif current in visited:
-                    new_node = visited[current]
-                else:
-                    new_node = Node(current.val, [])
-                    visited[current] = new_node
-
-                neighbor_nodes = []
-                for neighbor in current.neighbors:
-                    if neighbor not in visited:
-                        q.append(neighbor)
-                        new_neighbor = Node(neighbor.val, [])
-                        visited[neighbor] = new_neighbor
-                    else:
-                        new_neighbor = visited[neighbor]
-                    neighbor_nodes.append(new_neighbor)
-                new_node.neighbors = neighbor_nodes
-                    
+            current = q.popleft()
+            neighbor_nodes = []
+            for neighbor in current.neighbors:
+                if neighbor not in visited:
+                    q.append(neighbor)
+                    visited[neighbor] = Node(neighbor.val, [])
+                visited[current].neighbors.append(visited[neighbor])
+                
         return visited[node]
