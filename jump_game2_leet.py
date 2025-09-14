@@ -27,25 +27,6 @@ Constraints:
 It's guaranteed that you can reach nums[n - 1].
 """
 """
-Solution 0 using greedy. Keeping a fathest variable
-Time complexity : O(n)
-Space complexity : O(1)
-"""
-class Solution:
-    def canJump(self, nums: List[int]) -> bool:
-        n = len(nums)
-        if n == 1:
-            return True
-        farthest = 0
-
-        for i in range(n):
-            if i > farthest:
-                return False
-            farthest = max(farthest, nums[i]+i)
-
-            if farthest >= n-1:
-                return True
-"""
 Solution 1 using greedy. BFS is performed on the array.
 Time complexity : O(n)
 Space complexity : O(1)
