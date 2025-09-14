@@ -29,40 +29,56 @@ Follow up: Can you sort the linked list in O(n logn) time and O(1) memory (i.e. 
 #         self.next = next
 class Solution:
     def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        # Base case: if the list is empty or has only one node
         if not head or not head.next:
             return head
 
-        left = head
-        right = self.getMid(head)
-        temp = right.next
-        right.next = None
-        right = temp
+        # Split the list into two halves
+        mid = self.getMid(head)
 
-        left = self.sortList(left)
-        right = self.sortList(right)
+        # Recursively sort each half
+        left = self.sortList(head)
+        right = self.sortList(mid)
+
+        # Merge the sorted halves
         return self.merge(left, right)
 
-    def getMid(self, head):
-        slow, fast = head, head.next
+    def merge(
+        self, list1: Optional[ListNode], list2: Optional[ListNode]
+    ) -> Optional[ListNode]:
+        dummyHead = ListNode(0)
+        tail = dummyHead
+
+        # Merge two sorted linked lists
+        while list1 and list2:
+            if list1.val < list2.val:
+                tail.next = list1
+                list1 = list1.next
+            else:
+                tail.next = list2
+                list2 = list2.next
+            tail = tail.next
+
+        # Append the remaining nodes
+        tail.next = list1 if list1 else list2
+        return dummyHead.next
+
+    def getMid(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        """
+        Finds the middle of the linked list using fast and slow pointers.
+        Splits the list into two halves and returns the head of the second half.
+        """
+        slow, fast = head, head
+        prev = None  # To keep track of node before slow
+
+        # Move fast by 2 steps and slow by 1 step
         while fast and fast.next:
+            prev = slow
             slow = slow.next
             fast = fast.next.next
+
+        # Disconnect the first half from the second
+        if prev:
+            prev.next = None
+
         return slow
-
-    def merge(self, left, right):
-        current = root = ListNode()
-        while left and right:
-            if left.val > right.val:
-                current.next = right
-                right = right.next
-            else:
-                current.next = left
-                left = left.next
-            current = current.next
-
-        if right:
-            current.next = right
-        if left:
-            current.next = left
-
-        return root.next
