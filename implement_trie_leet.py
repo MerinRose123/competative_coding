@@ -29,12 +29,13 @@ Constraints:
 word and prefix consist only of lowercase English letters.
 At most 3 * 104 calls in total will be made to insert, search, and startsWith.
 """
-
+"""
+Tree based approach
+"""
 class TrieNode:
     def __init__(self, isEnd=False):
         self.isEnd = isEnd
         self.children = {}
-
 
 class Trie:
     def __init__(self):
@@ -63,3 +64,31 @@ class Trie:
                 return False
             current = current.children[elem]
         return True   
+"""
+Trie usin dictionary
+"""
+class Trie:
+    def __init__(self):
+        self.root = {}
+
+    def insert(self, word: str) -> None:
+        node = self.root
+        for ch in word:
+            node = node.setdefault(ch, {})
+        node["#"] = True   # mark end of word
+
+    def search(self, word: str) -> bool:
+        node = self.root
+        for ch in word:
+            if ch not in node:
+                return False
+            node = node[ch]
+        return "#" in node
+
+    def startsWith(self, prefix: str) -> bool:
+        node = self.root
+        for ch in prefix:
+            if ch not in node:
+                return False
+            node = node[ch]
+        return True
