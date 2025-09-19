@@ -171,3 +171,15 @@
 | `nums[:-i]` | Everything except last i elements |
 
 ---
+
+## 📐 Geometry & Math (Common in Coding Rounds)
+
+| Concept               | Complexity         | Notes                       |
+|-----------------------|--------------------|-----------------------------|
+| **GCD (Euclidean Algo)** | O(log min(a,b)) | Useful in number theory     |
+| **Sieve of Eratosthenes** | O(n log log n) | Prime generation            |
+| **Fast Exponentiation**  | O(log n)        | Modular power, cryptography |
+| **Convex Hull (Graham / Jarvis)** | O(n log n) | Computational geometry  |
+
+
+---
