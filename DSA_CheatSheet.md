@@ -147,13 +147,21 @@
 
 ## 🧮 Dynamic Programming (DP)
 
-| Concept / Problem Type | Example Problems |
-|-------------------------|------------------|
-| Fibonacci (top-down vs bottom-up) | DP basics |
-| 0/1 Knapsack           | Subset problems |
-| Longest Common Subsequence (LCS) | String DP |
-| Matrix DP              | Min path sum, unique paths |
-| DP on subsequences     | LIS, Partition equal subset sum |
+| **Category**                    | **Problem Type / Example**                                                  | **DP Dimensions**                   | **Key Recurrence / Idea**                                                  | **Notes / Tips**                                                |
+| --------------------------------| --------------------------------------------------------------------------- | ----------------------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| **1D Array / Sequence**         | House Robber (198), Maximum Subarray (53), Climbing Stairs (70)             | `dp[i]`                             | `dp[i] = max(dp[i-1], dp[i-2]+nums[i])`                                    | Typical prefix/subsequence problems; often 1D DP               |
+| **2D Grid / Matrix**            | Unique Paths (62), Minimum Path Sum (64), Dungeon Game (174)                | `dp[i][j]`                          | `dp[i][j] = f(dp[i-1][j], dp[i][j-1])`                                     | Grid traversal; can often be optimized to 1D row               |
+| **Knapsack / Subset**           | 0/1 Knapsack (416, 474), Coin Change (322, 518)                             | `dp[i][w]` or `dp[w]`               | `dp[i][w] = max(dp[i-1][w], dp[i-1][w-weight[i]] + value[i])`              | Classic decision DP; can optimize space to 1D                  |
+| **Strings**                     | LCS (1143), Edit Distance (72), Word Break (139)                            | `dp[i][j]` or `dp[i]`               | `dp[i][j] = f(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])`                       | Subsequence vs substring; segmentation; pattern matching       |
+| **Subsequence Counting**        | Distinct Subsequences (115), Decode Ways (91)                               | `dp[i]` or `dp[i][j]`               | `dp[i] = sum of valid previous splits`                                     | Count ways instead of max/min                                  |
+| **Palindromes**                 | Longest Palindromic Substring (5), Subsequence (516), Min insertions (1312) | `dp[i][j]`                          | `dp[i][j] = dp[i+1][j-1]+2 if s[i]==s[j] else max(dp[i+1][j], dp[i][j-1])` | Often 2D DP; can sometimes optimize to 1D diagonals            |
+| **Interval / Range**            | Matrix Chain Multiplication (312), Burst Balloons (312)                     | `dp[i][j]`                          | `dp[i][j] = min/max(dp[i][k] + dp[k+1][j] + cost[i][j])`                   | Usually for ranges or partitions                               |
+| **Bitmask / Subset**            | Traveling Salesman (TSP), Shortest Superstring                              | `dp[mask][i]`                       | `dp[mask][i] = min(dp[mask ^ (1<<i)][j] + cost[j][i])`                     | Used for small N; combinatorial DP                             |
+| **Tree DP**                     | Maximum Path Sum (124), House Robber III (337)                              | `dfs(node)` returns tuple or values | `dp[node] = f(dp[left], dp[right])`                                        | Often post-order traversal; can handle multiple states per node|
+| **Monotonic / Optimization DP** | Stock Buy/Sell (121, 188), Jump Game (45)                                   | `dp[i]`                             | `dp[i] = min/max(f(dp[j]))`                                                | Usually optimize with monotonic stack or prefix max/min        |
+| **Game Theory / Minimax DP**    | Stone Game (877), Predict the Winner (486)                                  | `dp[i][j]`                          | `dp[i][j] = max(score[i]+sum-dp[i+1][j], score[j]+sum-dp[i][j-1])`         | Player vs player; usually two-player optimal game              |
+| **Sliding Window + DP**         | Longest Substring with K Distinct (159)                                     | `dp[i]` or window                   | Maintain valid count while expanding window                                | Sometimes hybrid DP + sliding window                           |
+
 
 ---
 
