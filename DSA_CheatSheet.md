@@ -119,6 +119,42 @@
 
 ---
 
+---
+## 🐍 Python List Slicing
+
+| Slice      | Meaning |
+|------------|---------|
+| `nums[i:j]` | From index `i` to `j-1` |
+| `nums[i:]`  | From index `i` to end |
+| `nums[:j]`  | From start to `j-1` |
+| `nums[:]`   | Whole list |
+| `nums[::k]` | Every k-th element |
+| `nums[::-1]`| Reverse list |
+| `nums[-i:]` | Last i elements |
+| `nums[:-i]` | Everything except last i elements |
+
+---
+
+## 🐍 Python Tricks & Useful Functions
+
+| Feature / Function | Description / Notes | Example |
+|-------------------|------------------|---------|
+| `enumerate()`     | Loop with index and element | `for i, val in enumerate(arr):` |
+| `zip()`           | Iterate multiple lists in parallel | `for a, b in zip(list1, list2):` |
+| `all()`           | Returns True if all elements are True | `all(x > 0 for x in nums)` |
+| `any()`           | Returns True if any element is True | `any(x < 0 for x in nums)` |
+| `defaultdict`     | Dictionary with default values | `d = defaultdict(int)` |
+| `Counter`         | Frequency counting | `c = Counter(arr)` |
+| List comprehension | Concise list creation | `[x*2 for x in arr]` |
+| Set comprehension  | Unique elements | `{x for x in arr}` |
+| Dict comprehension | Map creation | `{k:v for k,v in zip(keys, values)}` |
+| `bisect` module   | Binary search on sorted list | `bisect.bisect_left(arr, x)` |
+| `deque`           | Double-ended queue | `dq = deque([1,2,3])` |
+| `abs()`           | Absolute value | `abs(-5) → 5` |
+| `ord()`           | ASCII / Unicode value of char | `ord('a') → 97` |
+| `chr()`           | Character from ASCII / Unicode | `chr(97) → 'a'` |
+
+
 ## 🧮 Dynamic Programming (DP)
 
 | **Category**                    | **Problem Type / Example**                                                  | **DP Dimensions**                   | **Key Recurrence / Idea**                                                  | **Notes / Tips**                                                |
@@ -161,20 +197,6 @@
 | Compression / repeated pattern matching | DP / Hashing | Detect repeated structure, pattern or periodicity in strings efficiently | [459. Repeated Substring Pattern](https://leetcode.com/problems/repeated-substring-pattern/) |
 
 ---
-## 🐍 Python List Slicing
-
-| Slice      | Meaning |
-|------------|---------|
-| `nums[i:j]` | From index `i` to `j-1` |
-| `nums[i:]`  | From index `i` to end |
-| `nums[:j]`  | From start to `j-1` |
-| `nums[:]`   | Whole list |
-| `nums[::k]` | Every k-th element |
-| `nums[::-1]`| Reverse list |
-| `nums[-i:]` | Last i elements |
-| `nums[:-i]` | Everything except last i elements |
-
----
 
 ## 🌲 BST vs Heap
 
@@ -210,5 +232,36 @@
 | **Sieve of Eratosthenes** | O(n log log n) | Prime generation            |
 | **Fast Exponentiation**  | O(log n)        | Modular power, cryptography |
 | **Convex Hull (Graham / Jarvis)** | O(n log n) | Computational geometry  |
+
+---
+
+## 🚀 Advanced Topics / Algorithms
+
+| Algorithm / Topic                  | Description / Use Case | Time Complexity | Notes / Example |
+|-----------------------------------|----------------------|----------------|----------------|
+| **Kahn’s Algorithm**               | Topological sorting using BFS | O(V + E) | Detect cycles, scheduling problems |
+| **Tarjan / Kosaraju**              | Strongly Connected Components (SCC) | O(V + E) | Graph component analysis |
+| **Moore’s Voting Algorithm**       | Find majority element (> n/2) | O(n) | Count frequency implicitly |
+| **Rabin-Karp / Rolling Hash**      | String matching, substring search | O(n + m) avg | Uses hash for substring equality |
+| **KMP Algorithm**                   | Pattern matching | O(n + m) | Prefix function avoids re-checking |
+| **Z-Algorithm**                     | Pattern matching / substring occurrences | O(n + m) | Computes longest prefix-suffix matches |
+| **Manacher’s Algorithm**            | Longest palindromic substring | O(n) | Linear-time palindrome detection |
+| **Union-Find (DSU)**                | Connected components, cycle detection | O(α(n)) | With path compression + union by rank |
+| **Segment Tree**                    | Range queries & updates | O(log n) per query/update | Range sum, min, max |
+| **Fenwick Tree / Binary Indexed Tree** | Range sum queries | O(log n) | Simpler than segment tree for prefix sums |
+| **Sliding Window / Two Pointers**  | Subarray/subsequence problems | O(n) | Longest substring, 2-sum variants |
+| **Mo’s Algorithm**                  | Offline query optimization | O((n + q) sqrt n) | Range query problems |
+| **Bit Manipulation Tricks**         | Subset generation, parity, XOR problems | O(n) | Use masks to represent subsets |
+| **Greedy Algorithms**               | Local optimum leads to global optimum | Varies | Activity selection, Huffman coding |
+| **Backtracking / DFS**              | Explore all possibilities | Exponential worst-case | N-Queens, Sudoku |
+| **Dynamic Programming (Advanced)**  | Subsequence, matrix, interval, tree DP | Varies | TSP, matrix chain multiplication, house robber III |
+| **Graph Shortest Path**             | Dijkstra, Bellman-Ford, Floyd-Warshall | Varies | Weighted graphs, negative edges |
+| **Minimum Spanning Tree (MST)**     | Kruskal, Prim | O(E log V) | Find MST for weighted graph |
+| **Suffix Array / Suffix Automaton** | String matching, distinct substrings | O(n log n) / O(n) | Efficient substring queries |
+| **Convex Hull (Graham / Jarvis)**  | Computational geometry | O(n log n) | Find outer boundary of points |
+| **Fast Exponentiation**             | Modular / power calculations | O(log n) | Useful in combinatorics, cryptography |
+| **Sieve of Eratosthenes**           | Prime generation | O(n log log n) | Precompute primes efficiently |
+
+ ---
 
 ---
