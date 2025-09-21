@@ -81,32 +81,6 @@
 
 ---
 
-## 🌲 BST vs Heap
-
-| Aspect         | BST (Binary Search Tree)            | Heap (Binary Heap) |
-|----------------|-------------------------------------|--------------------|
-| Ordering       | Left < Root < Right                 | Parent ≥ children (Max) / ≤ (Min) |
-| Shape          | May be skewed                       | Always complete binary tree |
-| Best for       | Searching, sorted operations        | Priority queue, heap sort |
-| Search         | O(log n) average, O(n) worst        | O(n) |
-| Insert/Delete  | O(log n) avg (if balanced)          | O(log n) |
-| Find min/max   | O(h)                                | O(1) |
-| Min/Max access | Need to traverse left/right subtree | Always root |
-
----
-
-## ⏳ Heap vs Priority Queue
-
-| Aspect       | Heap                                | Priority Queue |
-|--------------|-------------------------------------|----------------|
-| Definition   | A complete binary tree with heap property | Abstract data type that serves elements by priority |
-| Implementation | Usually binary heap (array)       | Can be built using heap, list, tree |
-| Min/Max      | O(1)                                | O(1) (if heap-backed) |
-| Insert/Delete| O(log n)                            | O(log n) |
-| Use cases    | Heap sort, PQ implementation        | Scheduling, graph algorithms (Dijkstra, Prim) |
-
----
-
 ## 🌳 Special Trees
 
 | Structure      | Properties            | Use Case |
@@ -162,9 +136,31 @@
 | **Game Theory / Minimax DP**    | Stone Game (877), Predict the Winner (486)                                  | `dp[i][j]`                          | `dp[i][j] = max(score[i]+sum-dp[i+1][j], score[j]+sum-dp[i][j-1])`         | Player vs player; usually two-player optimal game              |
 | **Sliding Window + DP**         | Longest Substring with K Distinct (159)                                     | `dp[i]` or window                   | Maintain valid count while expanding window                                | Sometimes hybrid DP + sliding window                           |
 
-
 ---
 
+# String Problem Strategy Cheat Sheet
+
+| Pattern / Keywords | Typical Approach | Why / Description | Example Problem |
+|-------------------------|----------------------|----------------------|----------------------|
+| Check subsequence (order matters, not contiguous) | Two pointers | You just scan through both strings once (`s` pointer moves when chars match), no need for DP | [392. Is Subsequence](https://leetcode.com/problems/is-subsequence/) |
+| Check substring (contiguous) | Sliding window / Two pointers | Efficient to maintain a window of characters and check conditions for contiguous substring | [76. Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) |
+| String formation (order not important) | Hash map / Counter / Frequency array | Only the frequency of characters matters, not order | [383. Ransom Note](https://leetcode.com/problems/ransom-note/) |
+| Anagram problems | Hash map / Sorting / Frequency array | Compare character counts to group or verify anagrams | [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/) |
+| Longest / shortest subsequence or substring | DP (LCS, subsequence DP) | Optimal substructure with overlapping subproblems — need to compare prefixes | [1143. Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/) |
+| Minimum edits / transformations | DP (Edit distance, LCS) | Need to track minimum operations to transform one string to another | [72. Edit Distance](https://leetcode.com/problems/edit-distance/) |
+| Greedy choice possible | Greedy | Problem allows local decisions to build global optimum, e.g., remove smallest character, balance parentheses | [316. Remove Duplicate Letters](https://leetcode.com/problems/remove-duplicate-letters/) |
+| Prefix search, autocomplete, dictionary problems | Trie | Efficient prefix storage and lookup, fast insert/search for word patterns | [208. Implement Trie](https://leetcode.com/problems/implement-trie-prefix-tree/) |
+| Repeating substring / pattern detection | KMP / Z-function / Rabin–Karp | Linear-time string pattern search, avoids brute-force | [28. Find the Index of the First Occurrence in a String](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/) |
+| Distinct substrings count | Suffix Array / Automaton / Trie | Handle large numbers of substrings efficiently | [1044. Longest Duplicate Substring](https://leetcode.com/problems/longest-duplicate-substring/) |
+| Palindromes | Expand around center / DP / Manacher’s algorithm | Efficient detection of palindromic substrings; DP helps with LPS; Manacher’s is O(n) | [5. Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) |
+| Multiple subsequence queries on same string | Preprocess + Binary Search | Precompute character positions to speed up repeated queries | [792. Number of Matching Subsequences](https://leetcode.com/problems/number-of-matching-subsequences/) |
+| Lexicographic smallest / largest substring | Greedy / Suffix Array | Problem requires comparing substrings to find min/max order efficiently | [1163. Last Substring in Lexicographical Order](https://leetcode.com/problems/last-substring-in-lexicographical-order/) |
+| Find longest prefix-suffix (borders, repetitions) | KMP prefix function / Z-function | Track repeating patterns or borders efficiently | [1392. Longest Happy Prefix](https://leetcode.com/problems/longest-happy-prefix/) |
+| String hashing (fast substring equality) | Polynomial rolling hash | Compare substrings in O(1) time using precomputed hashes | [1316. Distinct Echo Substrings](https://leetcode.com/problems/distinct-echo-substrings/) |
+| Segmented substring checks | Prefix sums / Hashing | Quickly check substring properties (like counts) in constant time | [1177. Can Make Palindrome from Substring](https://leetcode.com/problems/can-make-palindrome-from-substring/) |
+| Compression / repeated pattern matching | DP / Hashing | Detect repeated structure, pattern or periodicity in strings efficiently | [459. Repeated Substring Pattern](https://leetcode.com/problems/repeated-substring-pattern/) |
+
+---
 ## 🐍 Python List Slicing
 
 | Slice      | Meaning |
@@ -180,6 +176,32 @@
 
 ---
 
+## 🌲 BST vs Heap
+
+| Aspect         | BST (Binary Search Tree)            | Heap (Binary Heap) |
+|----------------|-------------------------------------|--------------------|
+| Ordering       | Left < Root < Right                 | Parent ≥ children (Max) / ≤ (Min) |
+| Shape          | May be skewed                       | Always complete binary tree |
+| Best for       | Searching, sorted operations        | Priority queue, heap sort |
+| Search         | O(log n) average, O(n) worst        | O(n) |
+| Insert/Delete  | O(log n) avg (if balanced)          | O(log n) |
+| Find min/max   | O(h)                                | O(1) |
+| Min/Max access | Need to traverse left/right subtree | Always root |
+
+---
+
+## ⏳ Heap vs Priority Queue
+
+| Aspect       | Heap                                | Priority Queue |
+|--------------|-------------------------------------|----------------|
+| Definition   | A complete binary tree with heap property | Abstract data type that serves elements by priority |
+| Implementation | Usually binary heap (array)       | Can be built using heap, list, tree |
+| Min/Max      | O(1)                                | O(1) (if heap-backed) |
+| Insert/Delete| O(log n)                            | O(log n) |
+| Use cases    | Heap sort, PQ implementation        | Scheduling, graph algorithms (Dijkstra, Prim) |
+
+---
+
 ## 📐 Geometry & Math (Common in Coding Rounds)
 
 | Concept               | Complexity         | Notes                       |
@@ -188,6 +210,5 @@
 | **Sieve of Eratosthenes** | O(n log log n) | Prime generation            |
 | **Fast Exponentiation**  | O(log n)        | Modular power, cryptography |
 | **Convex Hull (Graham / Jarvis)** | O(n log n) | Computational geometry  |
-
 
 ---
