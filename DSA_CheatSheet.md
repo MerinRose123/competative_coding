@@ -154,6 +154,7 @@
 | `ord()`           | ASCII / Unicode value of char | `ord('a') → 97` |
 | `chr()`           | Character from ASCII / Unicode | `chr(97) → 'a'` |
 | heapq | Min-heap / Max-heap (use negatives for max-heap) | `import heapq; heap = []; heapq.heappush(heap, x); heapq.heappop(heap)` |
+| math functions | Common math operations | `import math; math.floor(3.7), math.ceil(3.2), math.pow(2,3), math.sqrt(16), float('inf')` |
 
 
 ## 🧮 Dynamic Programming (DP)
