@@ -153,6 +153,7 @@
 | `abs()`           | Absolute value | `abs(-5) → 5` |
 | `ord()`           | ASCII / Unicode value of char | `ord('a') → 97` |
 | `chr()`           | Character from ASCII / Unicode | `chr(97) → 'a'` |
+| heapq | Min-heap / Max-heap (use negatives for max-heap) | `import heapq; heap = []; heapq.heappush(heap, x); heapq.heappop(heap)` |
 
 
 ## 🧮 Dynamic Programming (DP)
