@@ -45,6 +45,7 @@
 | Bubble Sort    | O(n)        | O(n²)      | O(n²)        | O(1)    | Only for teaching, not interviews. |
 | Counting Sort  | O(n + k)    | O(n + k)   | O(n + k)     | O(k)    | Only for small integer ranges. |
 | Radix Sort     | O(nk)       | O(nk)      | O(nk)        | O(n+k)  | Works for integers/strings with bounded digits. |
+| Bucket Sort | O(n + k)   | O(n + k)   | O(n²)        | O(n+k) | Distributes elements into buckets; good for uniform distributions; often used for frequencies. |
 
 ---
 
@@ -119,7 +120,6 @@
 
 ---
 
----
 ## 🐍 Python List Slicing
 
 | Slice      | Meaning |
@@ -156,6 +156,7 @@
 | heapq | Min-heap / Max-heap (use negatives for max-heap) | `import heapq; heap = []; heapq.heappush(heap, x); heapq.heappop(heap)` |
 | math functions | Common math operations | `import math; math.floor(3.7), math.ceil(3.2), math.pow(2,3), math.sqrt(16), float('inf')` |
 
+---
 
 ## 🧮 Dynamic Programming (DP)
 
@@ -260,10 +261,5 @@
 | **Graph Shortest Path**             | Dijkstra, Bellman-Ford, Floyd-Warshall | Varies | Weighted graphs, negative edges |
 | **Minimum Spanning Tree (MST)**     | Kruskal, Prim | O(E log V) | Find MST for weighted graph |
 | **Suffix Array / Suffix Automaton** | String matching, distinct substrings | O(n log n) / O(n) | Efficient substring queries |
-| **Convex Hull (Graham / Jarvis)**  | Computational geometry | O(n log n) | Find outer boundary of points |
-| **Fast Exponentiation**             | Modular / power calculations | O(log n) | Useful in combinatorics, cryptography |
-| **Sieve of Eratosthenes**           | Prime generation | O(n log log n) | Precompute primes efficiently |
 
  ---
-
----
